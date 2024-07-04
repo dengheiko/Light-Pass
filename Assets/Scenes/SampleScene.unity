@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 451526174}
   - component: {fileID: 451526173}
   - component: {fileID: 451526177}
+  - component: {fileID: 451526178}
   m_Layer: 0
   m_Name: Player Sphere
   m_TagString: Untagged
@@ -341,6 +342,19 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 0
+--- !u!114 &451526178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451526172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11179925d87a5a040a9f56e062e3c0e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
