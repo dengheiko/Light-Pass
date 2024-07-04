@@ -72,9 +72,7 @@ namespace LightPassGame
 
         private void RootStep(CellCoordinate currentCellCoordinate)
         {
-            if (_passedCells[currentCellCoordinate.X, currentCellCoordinate.Y]) return;
-
-            _passedCells[currentCellCoordinate.X, currentCellCoordinate.Y] = true;
+           _passedCells[currentCellCoordinate.X, currentCellCoordinate.Y] = true;
 
             var accessibleNeighbourCoordinates = new List<CellCoordinate>();
 
@@ -94,10 +92,9 @@ namespace LightPassGame
                     notPassedNeighbourCoordinates.Add(cellCoordinate);
                 }
 
-                if (notPassedNeighbourCoordinates.Count == 0) return;
+                if (notPassedNeighbourCoordinates.Count == 0) break;
                 
                 var rndCoordinate = _random.Next(notPassedNeighbourCoordinates.Count);
-                // var rndCoordinate = 0;
                 var nextCoordinate = notPassedNeighbourCoordinates[rndCoordinate];
 
                 Cell.Connect(
@@ -105,6 +102,21 @@ namespace LightPassGame
                     _cells[nextCoordinate.X, nextCoordinate.Y]);
                 RootStep(nextCoordinate);
             }
+
+            var currentCell = _cells[currentCellCoordinate.X, currentCellCoordinate.Y];
+            if (currentCell.NeighboursCount > 1) return;
+
+            while (true)
+            {
+                var rndCoordinate = _random.Next(accessibleNeighbourCoordinates.Count);
+                var nextCoordinate = accessibleNeighbourCoordinates[rndCoordinate];
+                var nextCell = _cells[nextCoordinate.X, nextCoordinate.Y];
+
+                if (currentCell.IsNeighbour(nextCell)) continue;
+                Cell.Connect(currentCell, nextCell);
+                break;
+            }
+            
         }
     }
 }

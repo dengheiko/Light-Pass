@@ -25,9 +25,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellWallView.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSize.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellNeighbourCoordinates.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellOffsetCoordinates.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" />
     </changedPaths>
   </component>
@@ -74,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719310276625</updated>
       <workItem from="1719310279632" duration="7000" />
-      <workItem from="1719310309441" duration="18530000" />
+      <workItem from="1719310309441" duration="19564000" />
     </task>
     <servers />
   </component>

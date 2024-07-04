@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace LightPassGame
@@ -71,7 +72,11 @@ namespace LightPassGame
             cell2._neighbours[neighbourCell2] = cell1;
             cell2.wallGameObjects[neighbourCell2].SetActive(false);
         }
-        
-        
+
+        public int NeighboursCount => 
+            _neighbours.Count(neighbour => neighbour != null);
+
+        public bool IsNeighbour(Cell cell) =>
+            _neighbours.Contains(cell);
     }
 }
