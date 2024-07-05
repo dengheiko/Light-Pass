@@ -15,26 +15,11 @@ namespace LightPassGame
         private void Awake()
         {
             _neighbours = new Cell[4];
-
-            // InitWallGameObjects();
         }
 
         public void SetCoordinate(CellCoordinate coordinate)
         {
             _coordinate = coordinate;
-        }
-        
-        private void InitWallGameObjects()
-        {
-            wallGameObjects = transform.GetChild(0).transform.GetComponentsInChildren<GameObject>();
-        }
-
-        public void UpdateWallsVisibility(IReadOnlyList<bool> walls)
-        {
-            for (var i = 0; i < walls.Count; i++)
-            {
-                wallGameObjects[i].SetActive(walls[i]);
-            }
         }
 
         public static void Connect(Cell cell1, Cell cell2)
