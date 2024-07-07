@@ -80,8 +80,17 @@ namespace LightPassGame
                 if (neighbour == previousCell) continue;
                 return neighbour;
             }
-            
         }
+
+        public Cell NeighbourOnDirection(MovementDirection direction) =>
+            direction switch
+            {
+                MovementDirection.Up => _allNeighbours[0],
+                MovementDirection.Down => _allNeighbours[2],
+                MovementDirection.Right => _allNeighbours[1],
+                MovementDirection.Left => _allNeighbours[3],
+                _ => null
+            };
 
     }
 }

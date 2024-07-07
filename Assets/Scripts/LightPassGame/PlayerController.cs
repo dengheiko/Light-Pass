@@ -5,38 +5,61 @@ namespace LightPassGame
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float speed = 1;
-    
-        private Vector3 _prevMousePosition;
-        private Vector3 _targetPosition;
-    
+        
+        public Cell CurrentCell { get; private set; }
+        private Cell _targetCell;
+        private float _moveDelta;
+        
+
+        private MovementDirection _movementDirection;
+        
+        public void InitCell(Cell cell)
+        {
+            CurrentCell = cell;
+            transform.position = cell.transform.position;
+        }
+
         private void Update()
         {
-            MouseDownUpdate();
-            MoveToTargetUpdate();
+            InputUpdate();
+            PickTargetCell();
+            MoveUpdate();
         }
 
-        private void MouseDownUpdate()
+        private void InputUpdate()
         {
-            if (!Input.GetMouseButton(0)) return;
-            if (Input.GetMouseButtonDown(0))
-                PrevMousePositionUpdate();
-        
-        
-        
-            PrevMousePositionUpdate();
+            
+            if (Input.GetKey(KeyCode.W)) _movementDirection = MovementDirection.Up;
+            else if (Input.GetKey(KeyCode.S)) _movementDirection = MovementDirection.Down;
+            else if (Input.GetKey(KeyCode.D)) _movementDirection = MovementDirection.Right;
+            else if (Input.GetKey(KeyCode.A)) _movementDirection = MovementDirection.Left;
+            else _movementDirection = MovementDirection.Stay;
         }
 
-        private void PrevMousePositionUpdate()
+        private void PickTargetCell()
         {
-            _prevMousePosition = Input.mousePosition;
+            if (_targetCell != null) return;
+            _targetCell = CurrentCell.NeighbourOnDirection(_movementDirection);
+            _moveDelta = 0;
         }
 
-        private void MoveToTargetUpdate()
+        private void MoveUpdate()
         {
+            if (_targetCell == null) return;
+            _moveDelta += speed * Time.deltaTime;
+            
+            if (_moveDelta >= 1)
+            {
+                transform.position = _targetCell.transform.position;
+                CurrentCell = _targetCell;
+                _targetCell = null;
+                return;
+            }
+
             transform.position = Vector3.Lerp(
-                transform.position,
-                _targetPosition,
-                Time.deltaTime * speed);
+                CurrentCell.transform.position,
+                _targetCell.transform.position,
+                _moveDelta);
         }
     }
 }

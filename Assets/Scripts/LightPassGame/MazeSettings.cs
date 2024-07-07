@@ -16,5 +16,6 @@ namespace LightPassGame
         [Header("Prefabs")] 
         public Cell cellPrefab;
         public Enemy enemyPrefab;
+        public PlayerController playerPrefab;
     }
 }

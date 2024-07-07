@@ -22,17 +22,18 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellWallView.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSize.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellNeighbourCoordinates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Target.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellOffsetCoordinates.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MovementDirection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2iMpPU5X2j1UKZhYGJijuyRNmBD" />

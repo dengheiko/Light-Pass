@@ -24,7 +24,14 @@ namespace LightPassGame
         private void Start()
         {
             GenerateMaze();
+            InitPlayer();
             InvokeBornEnemy();
+        }
+
+        private void InitPlayer()
+        {
+            var player = Instantiate(mazeSettings.playerPrefab);
+            player.InitCell(_cells[_centerX, _centerY]);
         }
 
         private void InvokeBornEnemy(float timeToInvoke = 0)
