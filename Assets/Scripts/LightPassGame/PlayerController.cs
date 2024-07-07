@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace LightPassGame
 {
@@ -9,16 +10,24 @@ namespace LightPassGame
         
         private Cell _targetCell;
         private float _moveDelta;
-        
 
+
+        private Vector2 _movementVector;
         private MovementDirection _movementDirection;
 
+        private void OnMovement(InputAction.CallbackContext context)
+        {
+            _movementVector = context.ReadValue<Vector2>();
+        }
+        
         private void Update()
         {
             InputUpdate();
             PickTargetCell();
             MoveUpdate();
         }
+        
+        
 
         private void InputUpdate()
         {
@@ -33,6 +42,7 @@ namespace LightPassGame
             if (_targetCell != null) return;
             _targetCell = CurrentCell.NeighbourOnDirection(_movementDirection);
             _moveDelta = 0;
+            if (_targetCell == null) _movementDirection = MovementDirection.Stay;
         }
 
         private void MoveUpdate()
