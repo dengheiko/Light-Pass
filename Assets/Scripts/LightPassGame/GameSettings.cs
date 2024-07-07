@@ -13,6 +13,7 @@ namespace LightPassGame
         [Header("Coins")] 
         public int numberOfCoins;
         public float periodToCreateCoin;
+        public float minDistanceToCreateCoin;
 
         [Header("Enemies")] 
         public float periodToCreateEnemy;

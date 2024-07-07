@@ -937,6 +937,7 @@ MonoBehaviour:
     height: 15
     numberOfCoins: 5
     periodToCreateCoin: 3
+    minDistanceToCreateCoin: 5
     periodToCreateEnemy: 7
     scoreCounter: {fileID: 1384159188}
     gameOverScreen: {fileID: 735062646}

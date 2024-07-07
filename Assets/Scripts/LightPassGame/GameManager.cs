@@ -23,6 +23,8 @@ namespace LightPassGame
         private List<Enemy> _enemies;
         private List<Coin> _coins;
 
+        private PlayerController _player;
+
         private void Start()
         {
             gameSettings.gameOverScreen.SetActive(false);
@@ -34,8 +36,8 @@ namespace LightPassGame
 
         private void InitPlayer()
         {
-            var player = Instantiate(gameSettings.playerPrefab);
-            player.InitCurrentCell(_cells[_centerX, _centerY]);
+            _player = Instantiate(gameSettings.playerPrefab);
+            _player.InitCurrentCell(_cells[_centerX, _centerY]);
         }
 
         private void InvokeBorn(string methodName,float timeToInvoke = 0)
@@ -78,13 +80,22 @@ namespace LightPassGame
 
             var coin = Instantiate(gameSettings.coinPrefab);
 
-            var coordinate = new CellCoordinate(
-                _random.Next(gameSettings.width),
-                _random.Next(gameSettings.height));
+            while (true)
+            {
+                var coordinate = new CellCoordinate(
+                    _random.Next(gameSettings.width),
+                    _random.Next(gameSettings.height));
 
-            coin.InitCurrentCell(_cells[coordinate.X, coordinate.Y]);
+                var cell = _cells[coordinate.X, coordinate.Y];
+                if (Vector3.Distance(cell.transform.position, _player.transform.position) <
+                    gameSettings.minDistanceToCreateCoin) continue;
+
+                coin.InitCurrentCell(cell);
+                break;
+                
+            }
+            
             coin.destroyedEvent.AddListener(OnCoinDestroyed);
-
             _coins.Add(coin);
             InvokeBorn(nameof(BornCoin), gameSettings.periodToCreateCoin);
 
