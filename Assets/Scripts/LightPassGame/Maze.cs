@@ -19,40 +19,48 @@ namespace LightPassGame
         private Random _random;
         private bool[,] _passedCells;
 
-        private List<Target> _targets;
+        private List<Enemy> _enemies;
 
         private void Start()
         {
             GenerateMaze();
-            InvokeCreatingTarget();
+            InvokeBornEnemy();
         }
 
-        private void InvokeCreatingTarget()
+        private void InvokeBornEnemy(float timeToInvoke = 0)
         {
-            Invoke(nameof(CreateTarget), mazeSettings.periodToCreate);
+            Invoke(nameof(BornEnemy), timeToInvoke);
         }
-        
-        private void CreateTarget()
+
+        private void BornEnemy()
         {
-            var target = Instantiate(mazeSettings.targetPrefab);
-            var coordinate = new CellCoordinate(
-                _random.Next(mazeSettings.width),
-                _random.Next(mazeSettings.height));
-
-            target.InitCurrentCell(_cells[coordinate.X, coordinate.Y]);
-
-            _targets ??= new List<Target>();
-            _targets.Add(target);
-
-            if (_targets.Count < mazeSettings.targetsCount) InvokeCreatingTarget();
-        }
-        
-        private void CreateTargets()
-        {
-            for (var i = 0; i < mazeSettings.targetsCount; i++)
+            _enemies ??= new List<Enemy>();
+            
+            var enemy = Instantiate(mazeSettings.enemyPrefab);
+            
+            if (_enemies.Count == 0)
             {
                 
+                var coordinate = new CellCoordinate(
+                    _random.Next(mazeSettings.width),
+                    _random.Next(mazeSettings.height));
+
+                enemy.InitCurrentCell(_cells[coordinate.X, coordinate.Y]);
             }
+            else
+            {
+                var sourceEnemy = _enemies[_random.Next(_enemies.Count)];
+                enemy.InitCurrentCell(sourceEnemy.CurrentCell);
+            }
+
+            _enemies.Add(enemy);
+            InvokeBornEnemy(mazeSettings.periodToCreateEnemy);
+
+        }
+        
+        private void CreateEnemies()
+        {
+            
         }
 
 

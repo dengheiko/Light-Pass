@@ -10,12 +10,11 @@ namespace LightPassGame
         public int width;
         public int height;
 
-        [Header("Targets")] 
-        public int targetsCount;
-        public float periodToCreate;
+        [Header("Enemies")] 
+        public float periodToCreateEnemy;
 
         [Header("Prefabs")] 
         public Cell cellPrefab;
-        public Target targetPrefab;
+        public Enemy enemyPrefab;
     }
 }
