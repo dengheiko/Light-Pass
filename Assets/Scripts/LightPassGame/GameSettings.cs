@@ -4,7 +4,7 @@ using UnityEngine;
 namespace LightPassGame
 {
     [Serializable]
-    public struct MazeSettings
+    public struct GameSettings
     {
         [Header("Maze size")]
         public int width;

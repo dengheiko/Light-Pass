@@ -2,14 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = System.Random;
 
 
 namespace LightPassGame
 {
-    public class Maze : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
-        [SerializeField] private MazeSettings mazeSettings;
+        [SerializeField] private GameSettings gameSettings;
 
         private Cell[,] _cells;
 
@@ -24,7 +25,7 @@ namespace LightPassGame
 
         private void Start()
         {
-            mazeSettings.gameOverScreen.SetActive(false);
+            gameSettings.gameOverScreen.SetActive(false);
             GenerateMaze();
             InitPlayer();
             InvokeBorn(nameof(BornEnemy));
@@ -33,7 +34,7 @@ namespace LightPassGame
 
         private void InitPlayer()
         {
-            var player = Instantiate(mazeSettings.playerPrefab);
+            var player = Instantiate(gameSettings.playerPrefab);
             player.InitCurrentCell(_cells[_centerX, _centerY]);
         }
 
@@ -46,15 +47,15 @@ namespace LightPassGame
         {
             _enemies ??= new List<Enemy>();
             
-            var enemy = Instantiate(mazeSettings.enemyPrefab);
+            var enemy = Instantiate(gameSettings.enemyPrefab);
             enemy.enemyCatchPlayerEvent.AddListener(OnGameOver);
             
             if (_enemies.Count == 0)
             {
                 
                 var coordinate = new CellCoordinate(
-                    _random.Next(mazeSettings.width),
-                    _random.Next(mazeSettings.height));
+                    _random.Next(gameSettings.width),
+                    _random.Next(gameSettings.height));
 
                 enemy.InitCurrentCell(_cells[coordinate.X, coordinate.Y]);
             }
@@ -65,7 +66,7 @@ namespace LightPassGame
             }
 
             _enemies.Add(enemy);
-            InvokeBorn(nameof(BornEnemy),mazeSettings.periodToCreateEnemy);
+            InvokeBorn(nameof(BornEnemy),gameSettings.periodToCreateEnemy);
 
         }
 
@@ -73,27 +74,27 @@ namespace LightPassGame
         {
             _coins ??= new List<Coin>();
 
-            if (_coins.Count >= mazeSettings.numberOfCoins) return;
+            if (_coins.Count >= gameSettings.numberOfCoins) return;
 
-            var coin = Instantiate(mazeSettings.coinPrefab);
+            var coin = Instantiate(gameSettings.coinPrefab);
 
             var coordinate = new CellCoordinate(
-                _random.Next(mazeSettings.width),
-                _random.Next(mazeSettings.height));
+                _random.Next(gameSettings.width),
+                _random.Next(gameSettings.height));
 
             coin.InitCurrentCell(_cells[coordinate.X, coordinate.Y]);
             coin.destroyedEvent.AddListener(OnCoinDestroyed);
 
             _coins.Add(coin);
-            InvokeBorn(nameof(BornCoin), mazeSettings.periodToCreateCoin);
+            InvokeBorn(nameof(BornCoin), gameSettings.periodToCreateCoin);
 
         }
 
         private void OnCoinDestroyed(Coin coin)
         {
             _coins.Remove(coin);
-            mazeSettings.scoreCounter.AddScore();
-            InvokeBorn(nameof(BornCoin), mazeSettings.periodToCreateCoin);
+            gameSettings.scoreCounter.AddScore();
+            InvokeBorn(nameof(BornCoin), gameSettings.periodToCreateCoin);
         }
         
         private void GenerateMaze()
@@ -104,13 +105,13 @@ namespace LightPassGame
 
         private void CreateCells()
         {
-            _cells = new Cell[mazeSettings.width, mazeSettings.height];
+            _cells = new Cell[gameSettings.width, gameSettings.height];
             var t = transform;
-            for (var x = 0; x < mazeSettings.width; x++)
+            for (var x = 0; x < gameSettings.width; x++)
             {
-                for (var y = 0; y < mazeSettings.height; y++)
+                for (var y = 0; y < gameSettings.height; y++)
                 {
-                    var newCell = Instantiate(mazeSettings.cellPrefab, t);
+                    var newCell = Instantiate(gameSettings.cellPrefab, t);
                     newCell.transform.localPosition = Vector3.right * x + Vector3.down * y;
                     newCell.SetCoordinate(new CellCoordinate(x, y));
                     newCell.name = "Cell_" + x + "_" + y;
@@ -118,8 +119,8 @@ namespace LightPassGame
                 }
             }
 
-            _centerX = mazeSettings.width / 2;
-            _centerY = mazeSettings.height / 2;
+            _centerX = gameSettings.width / 2;
+            _centerY = gameSettings.height / 2;
 
             t.position = Vector3.left * _centerX + Vector3.up * _centerY;
         }
@@ -127,7 +128,7 @@ namespace LightPassGame
         private void CreateRoots()
         {
             _random = new Random();
-            _passedCells = new bool[mazeSettings.width, mazeSettings.height];
+            _passedCells = new bool[gameSettings.width, gameSettings.height];
             RootStep(new CellCoordinate(_centerX, _centerY));
         }
 
@@ -140,7 +141,7 @@ namespace LightPassGame
             foreach (var offsetCoordinate in CellOffsetCoordinates.All)
             {
                 var neighbourCoordinate = currentCellCoordinate + offsetCoordinate;
-                if (!neighbourCoordinate.IsValid(mazeSettings)) continue;
+                if (!neighbourCoordinate.IsValid(gameSettings)) continue;
                 accessibleNeighbourCoordinates.Add(neighbourCoordinate);
             }
 
@@ -181,8 +182,13 @@ namespace LightPassGame
 
         private void OnGameOver(Enemy enemy)
         {
-            mazeSettings.gameOverScreen.SetActive(true);
+            gameSettings.gameOverScreen.SetActive(true);
             
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene("Scenes/Main Scene");
         }
     }
 }
