@@ -3,23 +3,14 @@ using UnityEngine;
 
 namespace LightPassGame
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : CellPosition
     {
         [SerializeField] private float speed = 1;
-
-        public Cell CurrentCell { get; private set; }
-
+        
         private Cell _targetCell;
         private Cell _previousCell;
         private float _moveDelta;
         
-
-        public void InitCurrentCell(Cell cell)
-        {
-            CurrentCell = cell;
-            transform.position = cell.transform.position;
-        }
-
         private void Update()
         {
             PickNewTargetCell();

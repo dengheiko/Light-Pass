@@ -2,22 +2,16 @@ using UnityEngine;
 
 namespace LightPassGame
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : CellPosition
     {
         [SerializeField] private float speed = 1;
 
-        private Cell CurrentCell { get; set; }
+        
         private Cell _targetCell;
         private float _moveDelta;
         
 
         private MovementDirection _movementDirection;
-        
-        public void InitCell(Cell cell)
-        {
-            CurrentCell = cell;
-            transform.position = cell.transform.position;
-        }
 
         private void Update()
         {

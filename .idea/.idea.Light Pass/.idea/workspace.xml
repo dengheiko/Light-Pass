@@ -14,10 +14,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellOffsetCoordinates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -29,12 +30,14 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Target.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellOffsetCoordinates.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MovementDirection.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/ICellPosition.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPosition.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" />
     </changedPaths>
   </component>

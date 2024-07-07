@@ -33,7 +33,7 @@ namespace LightPassGame
         private void InitPlayer()
         {
             var player = Instantiate(mazeSettings.playerPrefab);
-            player.InitCell(_cells[_centerX, _centerY]);
+            player.InitCurrentCell(_cells[_centerX, _centerY]);
         }
 
         private void InvokeBorn(string methodName,float timeToInvoke = 0)
