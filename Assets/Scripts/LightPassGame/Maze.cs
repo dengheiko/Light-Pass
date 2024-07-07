@@ -71,6 +71,8 @@ namespace LightPassGame
         {
             _coins ??= new List<Coin>();
 
+            if (_coins.Count >= mazeSettings.numberOfCoins) return;
+
             var coin = Instantiate(mazeSettings.coinPrefab);
 
             var coordinate = new CellCoordinate(
@@ -78,13 +80,19 @@ namespace LightPassGame
                 _random.Next(mazeSettings.height));
 
             coin.InitCurrentCell(_cells[coordinate.X, coordinate.Y]);
-
+            coin.destroyedEvent.AddListener(OnCoinDestroyed);
 
             _coins.Add(coin);
             InvokeBorn(nameof(BornCoin), mazeSettings.periodToCreateCoin);
 
         }
 
+        private void OnCoinDestroyed(Coin coin)
+        {
+            _coins.Remove(coin);
+            InvokeBorn(nameof(BornCoin), mazeSettings.periodToCreateCoin);
+        }
+        
         private void GenerateMaze()
         {
             CreateCells();
