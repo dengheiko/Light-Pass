@@ -5,8 +5,8 @@ namespace LightPassGame
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float speed = 1;
-        
-        public Cell CurrentCell { get; private set; }
+
+        private Cell CurrentCell { get; set; }
         private Cell _targetCell;
         private float _moveDelta;
         
@@ -28,12 +28,10 @@ namespace LightPassGame
 
         private void InputUpdate()
         {
-            
             if (Input.GetKey(KeyCode.W)) _movementDirection = MovementDirection.Up;
             else if (Input.GetKey(KeyCode.S)) _movementDirection = MovementDirection.Down;
             else if (Input.GetKey(KeyCode.D)) _movementDirection = MovementDirection.Right;
             else if (Input.GetKey(KeyCode.A)) _movementDirection = MovementDirection.Left;
-            else _movementDirection = MovementDirection.Stay;
         }
 
         private void PickTargetCell()

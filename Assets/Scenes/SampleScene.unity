@@ -340,10 +340,13 @@ MonoBehaviour:
   mazeSettings:
     width: 11
     height: 17
+    numberOfCoins: 5
+    periodToCreateCoin: 3
     periodToCreateEnemy: 5
     cellPrefab: {fileID: 1770669658260792462, guid: ab2e13341d0cba94f9874172cfe4dc67, type: 3}
     enemyPrefab: {fileID: 3721966042268220379, guid: 9292aa4bed172e34e8910fc1e9f48f71, type: 3}
     playerPrefab: {fileID: 8741597775963610942, guid: cea39f6aba8857e49bc6363e8206b26c, type: 3}
+    coinPrefab: {fileID: -6824316358172920125, guid: 74a873f2b356d8545b963834a396d1bb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -10,6 +10,10 @@ namespace LightPassGame
         public int width;
         public int height;
 
+        [Header("Coins")] 
+        public int numberOfCoins;
+        public float periodToCreateCoin;
+
         [Header("Enemies")] 
         public float periodToCreateEnemy;
 
@@ -17,5 +21,6 @@ namespace LightPassGame
         public Cell cellPrefab;
         public Enemy enemyPrefab;
         public PlayerController playerPrefab;
+        public Coin coinPrefab;
     }
 }

@@ -20,12 +20,14 @@ namespace LightPassGame
         private bool[,] _passedCells;
 
         private List<Enemy> _enemies;
+        private List<Coin> _coins;
 
         private void Start()
         {
             GenerateMaze();
             InitPlayer();
-            InvokeBornEnemy();
+            InvokeBorn(nameof(BornEnemy));
+            InvokeBorn(nameof(BornCoin));
         }
 
         private void InitPlayer()
@@ -34,9 +36,9 @@ namespace LightPassGame
             player.InitCell(_cells[_centerX, _centerY]);
         }
 
-        private void InvokeBornEnemy(float timeToInvoke = 0)
+        private void InvokeBorn(string methodName,float timeToInvoke = 0)
         {
-            Invoke(nameof(BornEnemy), timeToInvoke);
+            Invoke(methodName, timeToInvoke);
         }
 
         private void BornEnemy()
@@ -61,15 +63,27 @@ namespace LightPassGame
             }
 
             _enemies.Add(enemy);
-            InvokeBornEnemy(mazeSettings.periodToCreateEnemy);
+            InvokeBorn(nameof(BornEnemy),mazeSettings.periodToCreateEnemy);
 
         }
-        
-        private void CreateEnemies()
+
+        private void BornCoin()
         {
-            
-        }
+            _coins ??= new List<Coin>();
 
+            var coin = Instantiate(mazeSettings.coinPrefab);
+
+            var coordinate = new CellCoordinate(
+                _random.Next(mazeSettings.width),
+                _random.Next(mazeSettings.height));
+
+            coin.InitCurrentCell(_cells[coordinate.X, coordinate.Y]);
+
+
+            _coins.Add(coin);
+            InvokeBorn(nameof(BornCoin), mazeSettings.periodToCreateCoin);
+
+        }
 
         private void GenerateMaze()
         {
