@@ -87,8 +87,9 @@ namespace LightPassGame
                     _random.Next(gameSettings.height));
 
                 var cell = _cells[coordinate.X, coordinate.Y];
-                if (Vector3.Distance(cell.transform.position, _player.transform.position) <
-                    gameSettings.minDistanceToCreateCoin) continue;
+                if (_player != null && 
+                    Vector3.Distance(cell.transform.position, _player.transform.position) < gameSettings.minDistanceToCreateCoin) 
+                    continue;
 
                 coin.InitCurrentCell(cell);
                 break;
