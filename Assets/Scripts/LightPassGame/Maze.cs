@@ -24,6 +24,7 @@ namespace LightPassGame
 
         private void Start()
         {
+            mazeSettings.gameOverScreen.SetActive(false);
             GenerateMaze();
             InitPlayer();
             InvokeBorn(nameof(BornEnemy));
@@ -46,6 +47,7 @@ namespace LightPassGame
             _enemies ??= new List<Enemy>();
             
             var enemy = Instantiate(mazeSettings.enemyPrefab);
+            enemy.enemyCatchPlayerEvent.AddListener(OnGameOver);
             
             if (_enemies.Count == 0)
             {
@@ -175,6 +177,11 @@ namespace LightPassGame
                 Cell.Connect(currentCell, nextCell);
                 break;
             }
+        }
+
+        private void OnGameOver(Enemy enemy)
+        {
+            mazeSettings.gameOverScreen.SetActive(true);
             
         }
     }

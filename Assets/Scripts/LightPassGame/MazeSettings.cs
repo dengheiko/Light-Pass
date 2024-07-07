@@ -19,6 +19,9 @@ namespace LightPassGame
 
         [Header("Score")] 
         public ScoreCounter scoreCounter;
+
+        [Header("Game Over Screen")] 
+        public GameObject gameOverScreen;
         
         [Header("Prefabs")] 
         public Cell cellPrefab;
