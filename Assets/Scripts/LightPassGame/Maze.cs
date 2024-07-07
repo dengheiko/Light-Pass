@@ -22,17 +22,13 @@ namespace LightPassGame
         private void Awake()
         {
             GenerateMaze();
-            // Test();
+            Test();
         }
 
         private void Test()
         {
-            Cell.Connect(_cells[1, 5], _cells[1, 6]);
-            Cell.Connect(_cells[2, 3], _cells[3, 3]);
-            
-            Cell.Connect(_cells[2, 5], _cells[2, 6]);
-            Cell.Connect(_cells[3, 4], _cells[2, 4]);
-            
+            var target = Instantiate(mazeSettings.targetPrefab);
+            target.InitCurrentCell(_cells[3, 3]);
         }
 
         private void GenerateMaze()

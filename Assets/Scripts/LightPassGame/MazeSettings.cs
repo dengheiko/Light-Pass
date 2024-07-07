@@ -10,6 +10,8 @@ namespace LightPassGame
         public int width;
         public int height;
 
-        [Header("Prefabs")] public Cell cellPrefab;
+        [Header("Prefabs")] 
+        public Cell cellPrefab;
+        public Target targetPrefab;
     }
 }
