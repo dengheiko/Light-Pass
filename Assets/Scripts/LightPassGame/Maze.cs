@@ -19,17 +19,42 @@ namespace LightPassGame
         private Random _random;
         private bool[,] _passedCells;
 
-        private void Awake()
+        private List<Target> _targets;
+
+        private void Start()
         {
             GenerateMaze();
-            Test();
+            InvokeCreatingTarget();
         }
 
-        private void Test()
+        private void InvokeCreatingTarget()
+        {
+            Invoke(nameof(CreateTarget), mazeSettings.periodToCreate);
+        }
+        
+        private void CreateTarget()
         {
             var target = Instantiate(mazeSettings.targetPrefab);
-            target.InitCurrentCell(_cells[3, 3]);
+            var coordinate = new CellCoordinate(
+                _random.Next(mazeSettings.width),
+                _random.Next(mazeSettings.height));
+
+            target.InitCurrentCell(_cells[coordinate.X, coordinate.Y]);
+
+            _targets ??= new List<Target>();
+            _targets.Add(target);
+
+            if (_targets.Count < mazeSettings.targetsCount) InvokeCreatingTarget();
         }
+        
+        private void CreateTargets()
+        {
+            for (var i = 0; i < mazeSettings.targetsCount; i++)
+            {
+                
+            }
+        }
+
 
         private void GenerateMaze()
         {

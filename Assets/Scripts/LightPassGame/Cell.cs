@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = System.Random;
 
 namespace LightPassGame
 {
@@ -9,12 +10,17 @@ namespace LightPassGame
     {
         [SerializeField] private GameObject[] wallGameObjects;
 
-        private Cell[] _neighbours;
+        private Cell[] _allNeighbours;
+        private List<Cell> _realNeighbours;
         private CellCoordinate _coordinate;
+
+        private Random _random;
         
         private void Awake()
         {
-            _neighbours = new Cell[4];
+            _allNeighbours = new Cell[4];
+            _realNeighbours = new List<Cell>();
+            _random = new Random();
         }
 
         public void SetCoordinate(CellCoordinate coordinate)
@@ -50,18 +56,32 @@ namespace LightPassGame
             }
 
             var neighbourCell1 = vertical ? 2 : 1;
-            cell1._neighbours[neighbourCell1] = cell2;
+            cell1._allNeighbours[neighbourCell1] = cell2;
             cell1.wallGameObjects[neighbourCell1].SetActive(false);
+            cell1._realNeighbours.Add(cell2);
             
             var neighbourCell2 = vertical ? 0 : 3;
-            cell2._neighbours[neighbourCell2] = cell1;
+            cell2._allNeighbours[neighbourCell2] = cell1;
             cell2.wallGameObjects[neighbourCell2].SetActive(false);
+            cell2._realNeighbours.Add(cell1);
         }
 
-        public int NeighboursCount => 
-            _neighbours.Count(neighbour => neighbour != null);
+        public int NeighboursCount =>
+            _realNeighbours.Count;
 
         public bool IsNeighbour(Cell cell) =>
-            _neighbours.Contains(cell);
+            _realNeighbours.Contains(cell);
+
+        public Cell RandomNeighbour(Cell previousCell)
+        {
+            while (true)
+            {
+                var neighbour = _realNeighbours[_random.Next(_realNeighbours.Count)];
+                if (neighbour == previousCell) continue;
+                return neighbour;
+            }
+            
+        }
+
     }
 }

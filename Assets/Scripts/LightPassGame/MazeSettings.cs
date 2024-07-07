@@ -10,6 +10,10 @@ namespace LightPassGame
         public int width;
         public int height;
 
+        [Header("Targets")] 
+        public int targetsCount;
+        public float periodToCreate;
+
         [Header("Prefabs")] 
         public Cell cellPrefab;
         public Target targetPrefab;

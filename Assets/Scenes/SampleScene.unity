@@ -573,6 +573,8 @@ MonoBehaviour:
   mazeSettings:
     width: 11
     height: 17
+    targetsCount: 5
+    periodToCreate: 3
     cellPrefab: {fileID: 1770669658260792462, guid: ab2e13341d0cba94f9874172cfe4dc67, type: 3}
     targetPrefab: {fileID: 3721966042268220379, guid: 9292aa4bed172e34e8910fc1e9f48f71, type: 3}
 --- !u!1660057539 &9223372036854775807
