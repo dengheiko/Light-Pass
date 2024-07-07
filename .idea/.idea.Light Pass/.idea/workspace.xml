@@ -37,12 +37,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPosition.cs" />
       <option value="$PROJECT_DIR$/Assets/Input System/Input Actions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/TestInputSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/ScoreCounter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2iMpPU5X2j1UKZhYGJijuyRNmBD" />

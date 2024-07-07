@@ -33,10 +33,10 @@ namespace LightPassGame
         private void InputUpdate()
         {
             _previousMovementDirection = _movementDirection;
-            if (Input.GetKey(KeyCode.W)) _movementDirection = MovementDirection.Up;
-            else if (Input.GetKey(KeyCode.S)) _movementDirection = MovementDirection.Down;
-            else if (Input.GetKey(KeyCode.D)) _movementDirection = MovementDirection.Right;
-            else if (Input.GetKey(KeyCode.A)) _movementDirection = MovementDirection.Left;
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) _movementDirection = MovementDirection.Up;
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) _movementDirection = MovementDirection.Down;
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) _movementDirection = MovementDirection.Right;
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) _movementDirection = MovementDirection.Left;
         }
 
         private void PickTargetCell()
