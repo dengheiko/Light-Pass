@@ -90,6 +90,7 @@ namespace LightPassGame
         private void OnCoinDestroyed(Coin coin)
         {
             _coins.Remove(coin);
+            mazeSettings.scoreCounter.AddScore();
             InvokeBorn(nameof(BornCoin), mazeSettings.periodToCreateCoin);
         }
         

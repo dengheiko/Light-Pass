@@ -17,6 +17,9 @@ namespace LightPassGame
         [Header("Enemies")] 
         public float periodToCreateEnemy;
 
+        [Header("Score")] 
+        public ScoreCounter scoreCounter;
+        
         [Header("Prefabs")] 
         public Cell cellPrefab;
         public Enemy enemyPrefab;
