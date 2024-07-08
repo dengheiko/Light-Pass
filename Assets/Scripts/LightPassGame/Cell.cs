@@ -12,28 +12,32 @@ namespace LightPassGame
 
         private Cell[] _allNeighbours;
         private List<Cell> _realNeighbours;
-        private CellCoordinate _coordinate;
+        public CellCoordinate Coordinate { get; private set; }
 
         private Random _random;
+
+        public CellPathfinderData CellPathfinderData;
+        public List<Cell> Neighbours() => _realNeighbours;
         
         private void Awake()
         {
             _allNeighbours = new Cell[4];
             _realNeighbours = new List<Cell>();
             _random = new Random();
+            CellPathfinderData = new CellPathfinderData();
         }
 
         public void SetCoordinate(CellCoordinate coordinate)
         {
-            _coordinate = coordinate;
+            this.Coordinate = coordinate;
         }
 
         public static void Connect(Cell cell1, Cell cell2)
         {
             var vertical=false;
-            if (cell1._coordinate.X == cell2._coordinate.X)
+            if (cell1.Coordinate.X == cell2.Coordinate.X)
             {
-                if (cell1._coordinate.Y > cell2._coordinate.Y)
+                if (cell1.Coordinate.Y > cell2.Coordinate.Y)
                 {
                     var c = cell2;
                     cell2 = cell1;
@@ -41,9 +45,9 @@ namespace LightPassGame
                 }
                 vertical = true;
             }
-            else if (cell1._coordinate.Y == cell2._coordinate.Y)
+            else if (cell1.Coordinate.Y == cell2.Coordinate.Y)
             {
-                if (cell1._coordinate.X > cell2._coordinate.X)
+                if (cell1.Coordinate.X > cell2.Coordinate.X)
                 {
                     var c = cell2;
                     cell2 = cell1;

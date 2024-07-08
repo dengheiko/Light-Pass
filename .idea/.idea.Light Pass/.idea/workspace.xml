@@ -11,14 +11,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/ScoreCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellOffsetCoordinates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/ScoreCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -27,11 +27,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellWallView.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSize.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellNeighbourCoordinates.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Target.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellOffsetCoordinates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MovementDirection.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/ICellPosition.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPosition.cs" />
@@ -42,7 +40,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPassfinderData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPathfinderData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" />
     </changedPaths>
   </component>
@@ -90,6 +92,7 @@
       <updated>1719310276625</updated>
       <workItem from="1719310279632" duration="7000" />
       <workItem from="1719310309441" duration="19564000" />
+      <workItem from="1720429673817" duration="4568000" />
     </task>
     <servers />
   </component>

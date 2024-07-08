@@ -113,6 +113,7 @@ namespace LightPassGame
         {
             CreateCells();
             CreateRoots();
+            RemoveLongRoots();
         }
 
         private void CreateCells()
@@ -202,5 +203,71 @@ namespace LightPassGame
         {
             SceneManager.LoadScene("Scenes/Main Scene");
         }
+
+        #region Detect Long Roots
+
+        private void RemoveLongRoots()
+        {
+            for (var x = 0; x < gameSettings.width - 1; x++)
+            {
+                for (var y = 0; y < gameSettings.height - 1; y++)
+                {
+                    CheckTwoCellsForLongRoot(_cells[x, y], _cells[x, y + 1]);
+                    CheckTwoCellsForLongRoot(_cells[x, y], _cells[x + 1, y]);
+                }
+            }
+        }
+
+        private void CheckTwoCellsForLongRoot(Cell source, Cell target)
+        {
+            CellPathfinderData.ResetAll();
+            var cellsToPass = new List<Cell> {source};
+            source.CellPathfinderData.UpdateData(0, 0);
+            
+            while (true)
+            {
+                if (cellsToPass.Count == 0) break;
+                
+                var cell = cellsToPass[0];
+
+                cell.CellPathfinderData.Passed = true;
+                cellsToPass.Remove(cell);
+                
+                
+                
+                if (cell.CellPathfinderData.DistanceFromSource > gameSettings.longRootLimit)
+                    continue;
+
+                if (cell == target) return;
+
+                foreach (var neighbour in cell.Neighbours().Where(neighbour => !neighbour.CellPathfinderData.Passed))
+                {
+                    var distanceFromSource = source.Coordinate.Distance(neighbour.Coordinate);
+                    var distanceToTarget = target.Coordinate.Distance(neighbour.Coordinate);
+
+                    // Debug.Log("========");
+                    // Debug.Log(neighbour.CellPathfinderData.DistanceFromSource + ", " + neighbour.CellPathfinderData.DistanceToTarget);
+                    // Debug.Log(distanceFromSource + ", " + distanceToTarget);
+                    
+                    neighbour.CellPathfinderData.UpdateData(distanceFromSource, distanceToTarget);
+                    
+                    // Debug.Log(neighbour.CellPathfinderData.DistanceFromSource + ", " + neighbour.CellPathfinderData.DistanceToTarget);
+                    
+                    cellsToPass.Add(neighbour);
+                }
+
+                cellsToPass = cellsToPass.OrderBy(c => c.CellPathfinderData.DistanceToTarget).ToList();
+                
+            }
+
+            Cell.Connect(source, target);
+            // Debug.Log("CONNECT " + source.Coordinate.ToString() + " > " + target.Coordinate.ToString());
+
+
+        }
+        
+        
+
+        #endregion
     }
 }

@@ -6,9 +6,10 @@ namespace LightPassGame
     [Serializable]
     public struct GameSettings
     {
-        [Header("Maze size")]
+        [Header("Maze")]
         public int width;
         public int height;
+        public int longRootLimit;
 
         [Header("Coins")] 
         public int numberOfCoins;

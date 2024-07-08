@@ -935,6 +935,7 @@ MonoBehaviour:
   gameSettings:
     width: 9
     height: 15
+    longRootLimit: 5
     numberOfCoins: 5
     periodToCreateCoin: 3
     minDistanceToCreateCoin: 5

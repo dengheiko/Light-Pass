@@ -27,5 +27,9 @@ namespace LightPassGame
         {
             return "( " + X + ", " + Y + " )";
         }
+
+        public int Distance( CellCoordinate cellCoordinate) =>
+            Mathf.Abs(X - cellCoordinate.X) + Mathf.Abs(Y - cellCoordinate.Y);
+
     }
 }
