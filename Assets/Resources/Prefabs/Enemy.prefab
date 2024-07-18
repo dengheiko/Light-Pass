@@ -129,7 +129,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6f30ad7343629904abe5ab163ffc0e55, type: 2}
+  - {fileID: 2100000, guid: 203edec73c1f93d438f58c356af52e61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,7 +150,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -236,7 +236,7 @@ MonoBehaviour:
   enemyCatchPlayerEvent:
     m_PersistentCalls:
       m_Calls: []
-  speed: 2
+  speed: 1
 --- !u!1 &6131548040330674488
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &505730342182434723
 Transform:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 6131548040330674488}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -280,9 +280,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.7834199, b: 0.57254905, a: 1}
+  m_Color: {r: 1, g: 0.30327868, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 4
+  m_Range: 1
   m_SpotAngle: 59.9
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

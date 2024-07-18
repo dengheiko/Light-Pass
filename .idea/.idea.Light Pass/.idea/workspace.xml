@@ -38,7 +38,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/TestInputSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/ScoreCounter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPassfinderData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameSettings.cs" />
@@ -51,6 +50,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CameraMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2iMpPU5X2j1UKZhYGJijuyRNmBD" />
@@ -97,7 +97,7 @@
       <updated>1719310276625</updated>
       <workItem from="1719310279632" duration="7000" />
       <workItem from="1719310309441" duration="19564000" />
-      <workItem from="1720429673817" duration="10535000" />
+      <workItem from="1720429673817" duration="11178000" />
     </task>
     <servers />
   </component>

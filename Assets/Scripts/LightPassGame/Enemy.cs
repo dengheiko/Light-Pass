@@ -54,7 +54,7 @@ namespace LightPassGame
         {
             var player = other.GetComponent<PlayerController>();
             if (player == null) return;
-            Destroy(player.gameObject);
+            player.enabled = false;
             enemyCatchPlayerEvent.Invoke(this);
         }
     }

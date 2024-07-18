@@ -303,12 +303,8 @@ MonoBehaviour:
   m_VersionIndex: 12081
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges:
-  - a: 18
-    b: 19
-  - a: 22
-    b: 23
-  m_SelectedVertices: 12000000130000001600000017000000
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &3266729155463507264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +353,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 075da008142cad64992d1fc07efd825b, type: 2}
+  - {fileID: 2100000, guid: 348c2d1c037308941b8347ab50b6c703, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
