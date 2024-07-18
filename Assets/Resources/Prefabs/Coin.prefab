@@ -216,3 +216,4 @@ MonoBehaviour:
   destroyedEvent:
     m_PersistentCalls:
       m_Calls: []
+  coinExplodePrefab: {fileID: 6456589402714429860, guid: cb17ca57f62fdf443b5e787de44b42bf, type: 3}

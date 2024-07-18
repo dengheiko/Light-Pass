@@ -32,7 +32,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellOffsetCoordinates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MovementDirection.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/ICellPosition.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPosition.cs" />
       <option value="$PROJECT_DIR$/Assets/Input System/Input Actions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/TestInputSystem.cs" />
@@ -51,6 +50,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CameraMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2iMpPU5X2j1UKZhYGJijuyRNmBD" />
@@ -97,7 +97,7 @@
       <updated>1719310276625</updated>
       <workItem from="1719310279632" duration="7000" />
       <workItem from="1719310309441" duration="19564000" />
-      <workItem from="1720429673817" duration="11178000" />
+      <workItem from="1720429673817" duration="11845000" />
     </task>
     <servers />
   </component>
