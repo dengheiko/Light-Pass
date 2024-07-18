@@ -10,6 +10,10 @@ namespace LightPassGame
 {
     public class GameManager : MonoBehaviour
     {
+        private static GameManager _instance;
+
+        public static Vector3 PlayerPosition => _instance._player.transform.position;
+        
         [SerializeField] private GameSettings gameSettings;
 
         private Cell[,] _cells;
@@ -24,6 +28,11 @@ namespace LightPassGame
         private List<Coin> _coins;
 
         private PlayerController _player;
+
+        private void Awake()
+        {
+            _instance = this;
+        }
 
         private void Start()
         {
@@ -244,14 +253,9 @@ namespace LightPassGame
                 {
                     var distanceFromSource = source.Coordinate.Distance(neighbour.Coordinate);
                     var distanceToTarget = target.Coordinate.Distance(neighbour.Coordinate);
-
-                    // Debug.Log("========");
-                    // Debug.Log(neighbour.CellPathfinderData.DistanceFromSource + ", " + neighbour.CellPathfinderData.DistanceToTarget);
-                    // Debug.Log(distanceFromSource + ", " + distanceToTarget);
                     
                     neighbour.CellPathfinderData.UpdateData(distanceFromSource, distanceToTarget);
                     
-                    // Debug.Log(neighbour.CellPathfinderData.DistanceFromSource + ", " + neighbour.CellPathfinderData.DistanceToTarget);
                     
                     cellsToPass.Add(neighbour);
                 }
@@ -261,7 +265,6 @@ namespace LightPassGame
             }
 
             Cell.Connect(source, target);
-            // Debug.Log("CONNECT " + source.Coordinate.ToString() + " > " + target.Coordinate.ToString());
 
 
         }
