@@ -71,7 +71,7 @@ MonoBehaviour:
   enemyCatchPlayerEvent:
     m_PersistentCalls:
       m_Calls: []
-  speed: 1
+  speed: 0.8
 --- !u!1 &6131548040330674488
 GameObject:
   m_ObjectHideFlags: 0

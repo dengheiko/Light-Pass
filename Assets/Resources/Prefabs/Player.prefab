@@ -5255,8 +5255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11179925d87a5a040a9f56e062e3c0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  distanceToDetectWall: 0.5
+  speed: 3
+  alignToPathSpeed: 7
 --- !u!54 &150913408295540344
 Rigidbody:
   m_ObjectHideFlags: 0
