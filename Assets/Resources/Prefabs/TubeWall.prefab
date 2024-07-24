@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2199588363889224186}
   - component: {fileID: 3214540378534066573}
   - component: {fileID: 6425331643424470919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TubeWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,85 +1,118 @@
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace LightPassGame
 {
     public class PlayerController : CellPosition
     {
+        private const float InputThreshold = 0.1f;
+        
         [SerializeField] private float speed = 1;
 
+        [SerializeField] private float distanceToDetectWall = .6f;
         
+        private Vector3 _inputVector;
         private Cell _targetCell;
-        private float _moveDelta;
 
-
-        private Vector2 _movementVector;
-        private MovementDirection _movementDirection;
-        private MovementDirection _previousMovementDirection;
-
-        private void OnMovement(InputAction.CallbackContext context)
+        private enum MovementType
         {
-            _movementVector = context.ReadValue<Vector2>();
+            None,
+            X,
+            Y
         }
+
+        private MovementType _movementType;
         
         private void Update()
         {
             InputUpdate();
-            PickTargetCell();
-            MoveUpdate();
+            UpdateTargetCell();
+            MoveX();
+            MoveY();
+            UpdateCurrentCell();
         }
-        
-        
 
         private void InputUpdate()
         {
-            _previousMovementDirection = _movementDirection;
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || StickTouchController.IsDirection(MovementDirection.Up)) 
-                _movementDirection = MovementDirection.Up;
-            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || StickTouchController.IsDirection(MovementDirection.Down)) 
-                _movementDirection = MovementDirection.Down;
-            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || StickTouchController.IsDirection(MovementDirection.Right)) 
-                _movementDirection = MovementDirection.Right;
-            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || StickTouchController.IsDirection(MovementDirection.Left)) 
-                _movementDirection = MovementDirection.Left;
-        }
-
-        private void PickTargetCell()
-        {
-            if (_previousMovementDirection != _movementDirection && _moveDelta < .5f)
+            _inputVector = Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical");
+            if (_inputVector.magnitude < InputThreshold)
             {
-                var tryCell = CurrentCell.NeighbourOnDirection(_movementDirection);
-                if (tryCell != null)
-                {
-                    _targetCell = tryCell;
-                    _moveDelta = 0;
-                }
-            }
-            
-            if (_targetCell != null) return;
-            _targetCell = CurrentCell.NeighbourOnDirection(_movementDirection);
-            _moveDelta = 0;
-            if (_targetCell == null) _movementDirection = MovementDirection.Stay;
-        }
-
-        private void MoveUpdate()
-        {
-            if (_targetCell == null) return;
-            
-            _moveDelta += speed * Time.deltaTime;
-            
-            if (_moveDelta >= 1)
-            {
-                transform.position = _targetCell.transform.position;
-                CurrentCell = _targetCell;
-                _targetCell = null;
-                _movementDirection = MovementDirection.Stay;
+                _inputVector = Vector3.zero;
+                _movementType = MovementType.None;
                 return;
             }
 
-            transform.position = Vector3.Lerp(
-                CurrentCell.transform.position,
-                _targetCell.transform.position,
-                _moveDelta);
+            if (Mathf.Abs(_inputVector.x) > Mathf.Abs(_inputVector.y))
+            {
+                _inputVector.y = 0;
+                _movementType = MovementType.X;
+            }
+            else
+            {
+                _inputVector.x = 0;
+                _movementType = MovementType.Y;
+            }
+        }
+
+        private void UpdateTargetCell()
+        {
+            _targetCell = _movementType switch
+            {
+                MovementType.X => CurrentCell.NeighbourOnDirection(_inputVector.x > 0
+                    ? MovementDirection.Right
+                    : MovementDirection.Left),
+                MovementType.Y => CurrentCell.NeighbourOnDirection(_inputVector.y > 0
+                    ? MovementDirection.Up
+                    : MovementDirection.Down),
+                _ => null
+            };
+        }
+
+        private void MoveX()
+        {
+            if (_movementType != MovementType.X)
+                return;
+
+            transform.position += Vector3.right * (_inputVector.x * speed * Time.deltaTime);
+            
+            if (CheckWall() &&
+                Mathf.Sign((CurrentCell.transform.position - transform.position).x * _inputVector.x) < 0)
+            {
+                transform.position =
+                    Vector3.right * CurrentCell.transform.position.x +
+                    Vector3.up * transform.position.y;
+            }
+        }
+
+        private void MoveY()
+        {
+            if (_movementType != MovementType.Y)
+                return;
+
+            transform.position += Vector3.up * (_inputVector.y * speed * Time.deltaTime);
+            
+            if (CheckWall() &&
+                Mathf.Sign((CurrentCell.transform.position - transform.position).y * _inputVector.y) < 0)
+            {
+                transform.position =
+                    Vector3.up * CurrentCell.transform.position.y +
+                    Vector3.right * transform.position.x;
+            }
+        }
+
+
+        private bool CheckWall() => _targetCell == null;
+        
+
+        private void UpdateCurrentCell()
+        {
+            if (CurrentDelta().magnitude < .5f) return;
+            CurrentCell = _targetCell;
+        }
+
+        private Vector3 CurrentDelta()
+        {
+            return transform.position - CurrentCell.transform.position;
         }
     }
 }

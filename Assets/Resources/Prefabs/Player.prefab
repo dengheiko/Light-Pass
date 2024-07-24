@@ -5256,6 +5256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  distanceToDetectWall: 0.5
 --- !u!54 &150913408295540344
 Rigidbody:
   m_ObjectHideFlags: 0

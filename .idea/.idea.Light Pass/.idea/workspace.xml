@@ -49,12 +49,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/StickTouchController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CameraMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyTwiggle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyTwigle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyNoise.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2iMpPU5X2j1UKZhYGJijuyRNmBD" />
