@@ -19,17 +19,15 @@ namespace LightPassGame
         public void Init()
         {
             _enemies ??= new List<Enemy>();
-            // StartCoroutine(BornEnemy());
+            _random = new Random();
+            StartCoroutine(BornEnemy());
         }
         
         private IEnumerator BornEnemy()
         {
             do
             {
-                yield return new WaitForSeconds(periodToCreateEnemy);
-                
                 var enemy = Instantiate(enemyPrefab);
-                // enemy.enemyCatchPlayerEvent.AddListener(OnGameOver);
 
                 if (_enemies.Count == 0)
                 {
@@ -42,7 +40,10 @@ namespace LightPassGame
                 }
 
                 _enemies.Add(enemy);
-            } while (maxEnemies < 0 || _enemies.Count < maxEnemies);
+                
+                yield return new WaitForSeconds(periodToCreateEnemy);
+            } 
+            while (maxEnemies < 0 || _enemies.Count < maxEnemies);
         }
     }
 }

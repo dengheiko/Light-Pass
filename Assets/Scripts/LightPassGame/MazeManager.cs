@@ -66,6 +66,7 @@ namespace LightPassGame
 
         public void Init()
         {
+            _random = new Random();
             GenerateMaze();
         }
         

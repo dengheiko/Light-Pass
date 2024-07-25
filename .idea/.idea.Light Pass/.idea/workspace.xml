@@ -51,16 +51,16 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyNoise.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/TestEvent/TestEventSender.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/TestEvent/TestEventListener.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EventManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/ScoreCounter.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CoinManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/ScoreCounter.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2iMpPU5X2j1UKZhYGJijuyRNmBD" />

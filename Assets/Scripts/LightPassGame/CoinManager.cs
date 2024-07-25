@@ -43,8 +43,8 @@ namespace LightPassGame
                     if(GameManager.DistanceToPlayer(cell.transform.position) < minDistanceToCreateCoin)
                         continue;
 
-                    if (CheckDistanceToCoins(cell.transform.position) == false)
-                        continue;
+                    // if (CheckDistanceToCoins(cell.transform.position) == false)
+                    //     continue;
 
 
                     coin.InitCurrentCell(cell);
