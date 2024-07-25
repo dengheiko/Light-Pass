@@ -12,11 +12,16 @@ namespace LightPassGame
         private void Awake()
         {
             _textMeshProUGUI = GetComponent<TextMeshProUGUI>();
+            
+        }
+        private void Start()
+        {
+            GameManager.Events.OnCoinDestroy += AddScore;
         }
 
-        public void AddScore(int value = 1)
+        private void AddScore(Coin coin)
         {
-            Score += value;
+            Score++;
             _textMeshProUGUI.text = Score.ToString();
         }
     }
