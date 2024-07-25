@@ -20,8 +20,8 @@ namespace LightPassGame
             return new (cell1.X + cell2.X, cell1.Y + cell2.Y);
         }
 
-        public bool IsValid(GameSettings gameSettings) =>
-            X >= 0 && Y >= 0 && X < gameSettings.width && Y < gameSettings.height;
+        public bool IsValid(int width, int height) =>
+            X >= 0 && Y >= 0 && X < width && Y < height;
 
         public override string ToString()
         {

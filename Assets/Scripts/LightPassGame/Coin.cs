@@ -20,6 +20,7 @@ namespace LightPassGame
             var explode = Instantiate(coinExplodePrefab);
             explode.transform.position = transform.position;
             
+            GameManager.Events.OnCoinDestroy?.Invoke(this);
             Destroy(gameObject);
         }
     }

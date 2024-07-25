@@ -84528,6 +84528,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1860180660}
   - component: {fileID: 1860180661}
+  - component: {fileID: 1860180662}
+  - component: {fileID: 1860180664}
+  - component: {fileID: 1860180663}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -84563,19 +84566,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSettings:
-    width: 11
-    height: 7
-    longRootLimit: 3
-    numberOfCoins: 3
-    periodToCreateCoin: 5
-    minDistanceToCreateCoin: 5
-    periodToCreateEnemy: 11
     scoreCounter: {fileID: 1384159188}
     gameOverScreen: {fileID: 735062646}
     cellPrefab: {fileID: 1770669658260792462, guid: ab2e13341d0cba94f9874172cfe4dc67, type: 3}
-    enemyPrefab: {fileID: 3721966042268220379, guid: 9292aa4bed172e34e8910fc1e9f48f71, type: 3}
     playerPrefab: {fileID: 8741597775963610942, guid: cea39f6aba8857e49bc6363e8206b26c, type: 3}
-    coinPrefab: {fileID: -6824316358172920125, guid: 74a873f2b356d8545b963834a396d1bb, type: 3}
+--- !u!114 &1860180662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860180659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 571daf6c9f4e2e4468bac095463a5df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 11
+  height: 7
+  longRootLimit: 3
+--- !u!114 &1860180663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860180659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3eebd394ac419f80d6912daa4f0fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfCoins: 3
+  periodToCreateCoin: 5
+  minDistanceToCreateCoin: 5
+  coinPrefab: {fileID: -6824316358172920125, guid: 74a873f2b356d8545b963834a396d1bb, type: 3}
+--- !u!114 &1860180664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860180659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d60347fc7a4b26b72158463b1c82d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 3721966042268220379, guid: 9292aa4bed172e34e8910fc1e9f48f71, type: 3}
+  maxEnemies: -1
+  periodToCreateEnemy: 7
 --- !u!1001 &1878301561
 PrefabInstance:
   m_ObjectHideFlags: 0

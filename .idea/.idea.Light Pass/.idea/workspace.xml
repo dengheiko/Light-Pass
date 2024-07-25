@@ -40,21 +40,27 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Maze.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPassfinderData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Cell.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellPathfinderData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TouchController/TouchVector.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TouchController/StickTouchController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/StickTouchController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CameraMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Enemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyTwiggle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyTwigle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyNoise.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/PlayerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CellCoordinate.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/MazeManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/TestEvent/TestEventSender.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/TestEvent/TestEventListener.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EventManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/Coin.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/CoinManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LightPassGame/EnemyManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2iMpPU5X2j1UKZhYGJijuyRNmBD" />

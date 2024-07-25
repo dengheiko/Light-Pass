@@ -23,7 +23,7 @@ namespace LightPassGame
         }
 
         private MovementType _movementType;
-        
+
         private void Update()
         {
             InputUpdate();
