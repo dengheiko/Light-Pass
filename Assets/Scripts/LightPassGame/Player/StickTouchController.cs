@@ -1,13 +1,12 @@
 using System.Collections;
+using LightPassGame.Maze;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace LightPassGame
+namespace LightPassGame.Player
 {
     public class StickTouchController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField] private float detectThreshold = 0.2f;
-        
         [Header("Visuals")]
         [SerializeField] private Transform bigCircle;
         [SerializeField] private Transform smallCircle;

@@ -1,8 +1,6 @@
-﻿
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine.Events;
 
-namespace LightPassGame
+namespace LightPassGame.Maze
 {
     public class CellPathfinderData
     {

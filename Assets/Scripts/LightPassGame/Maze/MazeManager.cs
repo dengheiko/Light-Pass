@@ -1,11 +1,9 @@
-using System;
-using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Random = System.Random;
 
-namespace LightPassGame
+namespace LightPassGame.Maze
 {
     [DisallowMultipleComponent]
     public class MazeManager : MonoBehaviour
@@ -53,10 +51,12 @@ namespace LightPassGame
             
         }
 
+
         [SerializeField] private int width;
         [SerializeField] private int height;
         [SerializeField] private int longRootLimit;
-        
+        [SerializeField] private Cell cellPrefab;
+
         private Cell[,] _cells;
         private int _centerX;
         private int _centerY;
@@ -85,7 +85,7 @@ namespace LightPassGame
             {
                 for (var y = 0; y < height; y++)
                 {
-                    var newCell = Instantiate(GameManager.Settings.cellPrefab, t);
+                    var newCell = Instantiate(cellPrefab, t);
                     newCell.transform.localPosition = Vector3.right * x + Vector3.down * y;
                     newCell.SetCoordinate(new CellCoordinate(x, y));
                     newCell.name = "Cell_" + x + "_" + y;

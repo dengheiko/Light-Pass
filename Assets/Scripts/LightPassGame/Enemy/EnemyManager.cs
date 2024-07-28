@@ -1,24 +1,25 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using LightPassGame.Game;
+using UnityEngine;
 using Random = System.Random;
 
-namespace LightPassGame
+namespace LightPassGame.Enemy
 {
     [DisallowMultipleComponent]
     public class EnemyManager: MonoBehaviour
     {
-        [SerializeField] private Enemy enemyPrefab;
+        [SerializeField] private LightPassGame.Enemy.Enemy enemyPrefab;
         [SerializeField] private int maxEnemies = -1;
         [SerializeField] private float periodToCreateEnemy;
 
-        private List<Enemy> _enemies;
+        private List<LightPassGame.Enemy.Enemy> _enemies;
         
         private Random _random;
 
         public void Init()
         {
-            _enemies ??= new List<Enemy>();
+            _enemies ??= new List<LightPassGame.Enemy.Enemy>();
             _random = new Random();
             StartCoroutine(BornEnemy());
         }

@@ -1,7 +1,7 @@
-using System;
+using LightPassGame.Maze;
 using UnityEngine;
 
-namespace LightPassGame
+namespace LightPassGame.Player
 {
     public class PlayerController : CellPosition
     {

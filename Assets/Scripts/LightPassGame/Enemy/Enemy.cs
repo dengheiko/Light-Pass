@@ -1,13 +1,10 @@
-using System;
+using LightPassGame.Maze;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace LightPassGame
+namespace LightPassGame.Enemy
 {
     public class Enemy : CellPosition
     {
-        public UnityEvent<Enemy> enemyCatchPlayerEvent;
-        
         [SerializeField] private float speed = 1;
         
         private Cell _targetCell;
@@ -48,14 +45,6 @@ namespace LightPassGame
                 CurrentCell.transform.position,
                 _targetCell.transform.position,
                 _moveDelta);
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            var player = other.GetComponent<PlayerController>();
-            if (player == null) return;
-            player.enabled = false;
-            enemyCatchPlayerEvent.Invoke(this);
         }
     }
 }

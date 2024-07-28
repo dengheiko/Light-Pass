@@ -1,8 +1,10 @@
-using System;
+using LightPassGame.Game;
+using LightPassGame.Maze;
+using LightPassGame.Player;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace LightPassGame
+namespace LightPassGame.Coin
 {
     public class Coin : CellPosition
     {

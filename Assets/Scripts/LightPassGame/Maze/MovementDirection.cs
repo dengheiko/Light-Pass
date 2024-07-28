@@ -1,4 +1,4 @@
-namespace LightPassGame
+namespace LightPassGame.Maze
 {
     public enum MovementDirection
     {

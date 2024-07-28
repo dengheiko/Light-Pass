@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
+using LightPassGame.Game;
 using UnityEngine;
 
-namespace LightPassGame
+namespace LightPassGame.Player
 {
     public class CameraMovement : MonoBehaviour
     {

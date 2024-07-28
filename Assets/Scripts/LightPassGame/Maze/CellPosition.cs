@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LightPassGame
+namespace LightPassGame.Maze
 {
     public class CellPosition : MonoBehaviour
     {

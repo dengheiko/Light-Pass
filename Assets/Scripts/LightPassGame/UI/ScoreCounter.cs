@@ -1,13 +1,12 @@
-using System;
+using LightPassGame.Game;
 using TMPro;
 using UnityEngine;
 
-namespace LightPassGame
+namespace LightPassGame.UI
 {
     public class ScoreCounter : MonoBehaviour
     {
         private TextMeshProUGUI _textMeshProUGUI;
-        public int Score { get; private set; }
 
         private void Awake()
         {
@@ -16,13 +15,13 @@ namespace LightPassGame
         }
         private void Start()
         {
-            GameManager.Events.OnCoinDestroy += AddScore;
+            GameManager.Events.OnScoreChanged += ScoreChanged;
         }
 
-        private void AddScore(Coin coin)
+        private void ScoreChanged(int value)
         {
-            Score++;
-            _textMeshProUGUI.text = Score.ToString();
+            
+            _textMeshProUGUI.text = value.ToString();
         }
     }
 }

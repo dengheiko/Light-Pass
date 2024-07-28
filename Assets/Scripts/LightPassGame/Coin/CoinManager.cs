@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
+using LightPassGame.Game;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Random = System.Random;
 
-namespace LightPassGame
+namespace LightPassGame.Coin
 {
     [DisallowMultipleComponent]
     public class CoinManager: MonoBehaviour
@@ -15,50 +13,47 @@ namespace LightPassGame
         [SerializeField] private float periodToCreateCoin;
         [SerializeField] private float minDistanceToCreateCoin;
         
-        [SerializeField] private Coin coinPrefab;
+        [SerializeField] private LightPassGame.Coin.Coin coinPrefab;
         
-        private List<Coin> _coins;
+        private List<LightPassGame.Coin.Coin> _coins;
 
         public void Init()
         {
-            _coins ??= new List<Coin>();
+            _coins ??= new List<LightPassGame.Coin.Coin>();
             GameManager.Events.OnCoinDestroy += DeleteCoinFromList;
             StartCoroutine(BornCoin());
         }
 
         private IEnumerator BornCoin()
         {
+            InstantiateCoin();
             while (true)
             {
                 yield return new WaitForSeconds(periodToCreateCoin);
-
                 if (_coins.Count >= numberOfCoins) continue;
-
-                var coin = Instantiate(coinPrefab);
-
-                while (true)
-                {
-                    var cell = GameManager.Maze.RandomCell();
-
-                    if(GameManager.DistanceToPlayer(cell.transform.position) < minDistanceToCreateCoin)
-                        continue;
-
-                    // if (CheckDistanceToCoins(cell.transform.position) == false)
-                    //     continue;
-
-
-                    coin.InitCurrentCell(cell);
-                    break;
-                }
-                _coins.Add(coin);
+                InstantiateCoin();
             }
+        }
+
+        private void InstantiateCoin()
+        {
+            var coin = Instantiate(coinPrefab);
+            for (var i = 0; i < 10; i++)
+            {
+                var cell = GameManager.Maze.RandomCell();
+                if(GameManager.DistanceToPlayer(cell.transform.position) < minDistanceToCreateCoin)
+                    continue;
+                coin.InitCurrentCell(cell);
+                break;
+            }
+            _coins.Add(coin);
         }
         
         private bool CheckDistanceToCoins(Vector3 position) =>
             _coins.All(coin => !(Vector3.Distance(position, coin.transform.position) < 4));
         
         
-        private void DeleteCoinFromList(Coin coin)
+        private void DeleteCoinFromList(LightPassGame.Coin.Coin coin)
         {
             _coins.Remove(coin);
         }

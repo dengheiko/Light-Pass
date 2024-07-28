@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace LightPassGame
+namespace LightPassGame.Maze
 {
     [Serializable]
     public struct CellCoordinate

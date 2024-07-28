@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace LightPassGame
+namespace LightPassGame.Enemy
 {
     public class EnemyNoise : MonoBehaviour
     {

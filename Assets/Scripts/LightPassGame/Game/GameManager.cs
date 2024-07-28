@@ -1,66 +1,62 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
+using LightPassGame.Coin;
+using LightPassGame.Enemy;
+using LightPassGame.Maze;
+using LightPassGame.Player;
+using LightPassGame.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Random = System.Random;
 
-
-namespace LightPassGame
+namespace LightPassGame.Game
 {
     [RequireComponent(typeof(MazeManager))]
     [RequireComponent(typeof(EnemyManager))]
     [RequireComponent(typeof(CoinManager))]
+    [RequireComponent(typeof(ScoreManager))]
     [DisallowMultipleComponent]
     public class GameManager : MonoBehaviour
     {
+        private static GameManager _instance;
         public static MazeManager Maze => _instance._mazeManager;
         public static EnemyManager Enemies => _instance._enemyManager;
         public static CoinManager Coins => _instance._coinManager;
         public static EventManager Events => _instance._eventManager;
-        
-        private static GameManager _instance;
+
+        public static ScoreManager Score => _instance._scoreManager;
         public static Vector3 PlayerPosition => _instance._player.transform.position;
 
-        public static GameSettings Settings => _instance.gameSettings;
-
-        [SerializeField] private GameSettings gameSettings;
-
+        [SerializeField] private PlayerController playerPrefab;
+        [SerializeField] private GameOverScreen gameOverScreen;
+        
         private MazeManager _mazeManager;
         private EnemyManager _enemyManager;
         private CoinManager _coinManager;
+        private ScoreManager _scoreManager;
         private PlayerController _player;
         private EventManager _eventManager;
         
-        private Random _random;
 
         private void Awake()
         {
             _instance = this;
+            
             _mazeManager = GetComponent<MazeManager>();
             _enemyManager = GetComponent<EnemyManager>();
             _coinManager = GetComponent<CoinManager>();
+            _scoreManager = GetComponent<ScoreManager>();
             _eventManager = new EventManager();
+            Events.OnPlayerDamage += StartGameOverScreen;
         }
-
         private void Start()
         {
-            gameSettings.gameOverScreen.SetActive(false);
-
             Maze.Init();
             InitPlayer();
             Enemies.Init();
             Coins.Init();
         }
-
         private void InitPlayer()
         {
-            _player = Instantiate(gameSettings.playerPrefab);
+            _player = Instantiate(playerPrefab);
             _player.InitCurrentCell(_mazeManager.CentralCell);
         }
-
         public static float DistanceToPlayer(Vector3 position)
         {
             try
@@ -72,15 +68,11 @@ namespace LightPassGame
                 return float.MaxValue;
             }
         }
-
-        private void OnGameOver(Enemy enemy)
+        private void StartGameOverScreen()
         {
-            gameSettings.gameOverScreen.SetActive(true);
+            Instantiate(gameOverScreen);
         }
 
-        public void RestartGame()
-        {
-            SceneManager.LoadScene("Scenes/Main Scene");
-        }
+        
     }
 }

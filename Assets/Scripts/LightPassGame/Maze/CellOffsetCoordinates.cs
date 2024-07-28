@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace LightPassGame
+namespace LightPassGame.Maze
 {
     public static class CellOffsetCoordinates
     {
